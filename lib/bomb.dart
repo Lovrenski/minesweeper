@@ -1,17 +1,20 @@
 import 'package:flutter/material.dart';
 
 class MyBomb extends StatelessWidget {
-  final child;
+  bool revealed;
+  final function;
 
-  MyBomb({this.child});
+  MyBomb({required this.revealed, this.function});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(1.0),
-      child: Container(
-        color: Colors.grey[800],
-        child: Center(child: Text(child.toString())),
+    return GestureDetector(
+      onTap: function,
+      child: Padding(
+        padding: const EdgeInsets.all(1.0),
+        child: Container(
+          color: revealed ? Colors.grey[800] : Colors.grey[400],
+        ),
       ),
     );
   }
